@@ -1,0 +1,54 @@
+:root {
+  --bg: #0f1226;
+  --card: #181b36;
+  --text: #eef0ff;
+  --accent: #7c8cff;
+  --muted: #aab0d9;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 24px;
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial;
+  background: radial-gradient(1100px circle at 12% 10%, #15183b 0, var(--bg) 60%);
+  color: var(--text);
+}
+
+header { text-align: center; max-width: 960px; margin: 0 auto 20px; }
+h1 { margin: 0 0 6px; }
+.controls { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+input, button {
+  background: var(--card); color: var(--text);
+  border: 1px solid #2a2e59; border-radius: 12px;
+  padding: 10px 12px;
+}
+button { cursor: pointer; transition: transform .06s ease; }
+button:active { transform: translateY(1px); }
+details { border: 1px solid #2a2e59; border-radius: 12px; padding: 6px 10px; }
+.notice { color: var(--muted); min-height: 1.2em; }
+
+.hidden { display: none; }
+
+main { max-width: 960px; margin: 0 auto; }
+.slide {
+  display: none;
+  background: linear-gradient(180deg, var(--card), #131536);
+  border: 1px solid #282c57;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  animation: fadeIn .5s ease both;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.slide.active { display: block; }
+.slide h2 { color: var(--accent); margin: 0 0 10px; }
+.nav { display: flex; justify-content: center; gap: 12px; margin: 16px 0; }
+
+#shareCard { background: #11132b; border-radius: 12px; }
+.actions { display: flex; justify-content: center; gap: 10px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

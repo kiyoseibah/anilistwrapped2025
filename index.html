@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AniList Wrapped 2025</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1e1b4b, #020617);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .app {
+      width: 100%;
+      max-width: 480px;
+      padding: 24px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      opacity: 0.8;
+      margin-bottom: 2rem;
+    }
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    button {
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      background: white;
+      color: black;
+      font-weight: 600;
+      margin: 4px;
+    }
+    button.secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .error {
+      color: #f87171;
+      margin-top: 1rem;
+      min-height: 1.25rem;
+    }
+    .slide {
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 32px 20px;
+    }
+    .slide h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .slide .value {
+      font-size: 1.1rem;
+      font-weight: 500;
+      white-space: pre-line;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    canvas {
+      margin-top: 1.5rem;
+      background: #11132b;
+      border-radius: 12px;
+      width: 100%;
+      height: auto;
+    }
+    .canvas-nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      gap: 12px;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>AniList Wrapped 2025</h1>
+    <div class="subtitle">Your anime & manga year recap</div>
+
+    <input id="username" placeholder="AniList username" />
+    <button onclick="generate()">Generate</button>
+
+    <div id="error" class="error"></div>
+
+    <div id="slide" class="slide" style="display:none">
+      <h2 id="slide-title"></h2>
+      <div class="value" id="slide-value"></div>
+
+      <div class="nav">
+        <button class="secondary" onclick="prevSlide()">Prev</button>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+    </div>
+
+    <canvas id="wrappedCanvas" width="1080" height="1920" style="display:none"></canvas>
+    <div class="canvas-nav" style="display:none" id="canvasNav">
+      <button class="secondary" onclick="prevCanvasPage()">Prev Card</button>
+      <button onclick="nextCanvasPage()">Next Card</button>
+    </div>
+    <button id="saveBtn" style="display:none" onclick="saveCanvas()">Download Image</button>
+
+    <footer>Unofficial AniList project • Client-side only</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
